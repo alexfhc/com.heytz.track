@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.heytz.track" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>ServiceWrapper</name>
+    <js-module name="trackWrapper" src="www/trackWrapper.js">
+        <clobbers target="cordova.plugins.trackWrapper"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="trackWrapper">
+                <param name="android-package" value="com.heytz.track.trackWrapper"/>
+            </feature>
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <service android:name="com.heytz.track.Service"
+                     android:label="Heytz Track Service"></service>
+        </config-file>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="trackWrapper">
+                <param name="ios-package" value="trackWrapper"/>
+            </feature>
+        </config-file>
+        <source-file src="src/ios/track.m"/>
+        <framework src="src/ios/libs/BaiduTraceSDK.framework" embed="true" custom="true"/>
+    </platform>
+
+</plugin>
