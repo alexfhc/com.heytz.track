@@ -40,10 +40,9 @@ public class trackWrapper extends CordovaPlugin {
         // 打包回传周期(单位:秒)
         int packInterval = 10;
         mTraceClient = new LBSTraceClient(context);
-
-        // 设置定位和打包周期
         mTraceClient.setInterval(gatherInterval, packInterval);
         initListener();
+
     }
 
 
@@ -51,21 +50,17 @@ public class trackWrapper extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         socketCallbackContext = callbackContext;
         if (action.equals("stopTrack")) {
-            // 停止采集
             mTraceClient.stopGather(mTraceListener);
-            // 停止服务
             mTraceClient.stopTrace(mTrace, mTraceListener);
-
             return true;
         }
         if (action.equals("startTrack")) {
             String ak = args.getString(0);
             serviceId = Integer.parseInt(args.getString(1));
             entityName = args.getString(2);
-            // 初始化轨迹服务
             mTrace = new Trace(serviceId, entityName, isNeedObjectStorage);
-            // 初始化轨迹服务客户端
             mTraceClient.startTrace(mTrace, mTraceListener);
+
 
             return true;
         }
@@ -78,9 +73,20 @@ public class trackWrapper extends CordovaPlugin {
             public void onBindServiceCallback(int errorNo, String message) {
 
             }
+
             // 开启服务回调
             @Override
             public void onStartTraceCallback(int status, String message) {
+                (new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            Thread.sleep(200);
+                            mTraceClient.startGather(mTraceListener);
+                        } catch (InterruptedException var3) {
+                            var3.printStackTrace();
+                        }
+                    }
+                })).start();
             }
 
             // 停止服务回调

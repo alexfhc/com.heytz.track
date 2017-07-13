@@ -18,7 +18,13 @@
                     android:enabled="true"
                     android:process=":remote">
             </service>
-            <!-- 这个权限用于进行网络定位-->
+            <meta-data
+                    android:name="com.baidu.lbsapi.API_KEY"
+                    android:value="6BFQfZt3576lmiBwoe7LCiGkoDmpPBWh" />
+        </config-file>
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+
+        <!-- 这个权限用于进行网络定位-->
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
             <!-- 这个权限用于访问GPS定位-->
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
@@ -41,11 +47,10 @@
             <!-- 用于Android M及以上系统，申请加入忽略电池优化白名单-->
             <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"></uses-permission>
         </config-file>
+
         <source-file src="src/android/trackWrapper.java" target-dir="src/com/heytz/trackWrapper"/>
         <source-file src="libs/BaiduTraceSDK_v3_0_4.jar" target-dir="libs"/>
-        <meta-data
-                android:name="com.baidu.lbsapi.API_KEY"
-                android:value="6BFQfZt3576lmiBwoe7LCiGkoDmpPBWh" />
+
 
     </platform>
     <platform name="ios">
