@@ -50,6 +50,7 @@
 
         <source-file src="src/android/trackWrapper.java" target-dir="src/com/heytz/trackWrapper"/>
         <source-file src="libs/BaiduTraceSDK_v3_0_4.jar" target-dir="libs"/>
+        <source-file src="libs/bos-android-sdk-1.0.2.jar" target-dir="libs"/>
 
 
     </platform>
