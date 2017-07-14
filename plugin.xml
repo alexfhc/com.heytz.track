@@ -50,11 +50,11 @@
 
         <source-file src="src/android/trackWrapper.java" target-dir="src/com/heytz/trackWrapper"/>
         <source-file src="libs/BaiduTraceSDK_v3_0_4.jar" target-dir="libs"/>
-        <source-file src="libs/arm64-v8a/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/arm64-v8a/libBaiduTraceSDK_v3_0_4.so"/>
-        <source-file src="libs/armeabi/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/armeabi/libBaiduTraceSDK_v3_0_4.so"/>
-        <source-file src="libs/armeabi-v7a/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/armeabi-v7a/libBaiduTraceSDK_v3_0_4.so"/>
-        <source-file src="libs/x86/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/x86/libBaiduTraceSDK_v3_0_4.so"/>
-        <source-file src="libs/x86_64/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/x86_64/libBaiduTraceSDK_v3_0_4.so"/>
+        <source-file src="libs/arm64-v8a/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/arm64-v8a/"/>
+        <source-file src="libs/armeabi/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/armeabi/"/>
+        <source-file src="libs/armeabi-v7a/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/armeabi-v7a/"/>
+        <source-file src="libs/x86/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/x86/"/>
+        <source-file src="libs/x86_64/libBaiduTraceSDK_v3_0_4.so" target-dir="libs/x86_64/"/>
 
 
     </platform>
