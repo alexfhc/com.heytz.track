@@ -59,6 +59,12 @@
 
     </platform>
     <platform name="ios">
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>需要持续定位</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <string>location</string>
+        </config-file>
         <config-file parent="/*" target="config.xml">
             <feature name="trackWrapper">
                 <param name="ios-package" value="trackWrapper"/>
